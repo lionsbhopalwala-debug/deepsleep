@@ -3,141 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeepSleep Pro | Best Sleep Cycle Calculator & Science-Backed Nap Timer</title>
-    <meta name="description" content="Calculate the best bedtime based on 90-minute sleep cycles. Optimize your REM sleep, reduce grogginess, and wake up refreshed with DeepSleep Pro.">
+    <title>DeepSleep Pro | Science-Backed Sleep Cycle & Nap Calculator</title>
+    <meta name="description" content="Optimize your REM sleep with DeepSleep Pro. Calculate 90-minute sleep cycles, manage caffeine impact, and wake up refreshed. Best sleep tool for circadian rhythm health.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-        :root { --primary: #38bdf8; --bg: #0f172a; --card: #1e293b; --accent: #22c55e; }
+        :root { --primary: #38bdf8; --bg: #0f172a; --accent: #22c55e; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: white; scroll-behavior: smooth; }
         .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); }
-        .best-card { border: 2px solid var(--accent); position: relative; }
-        .best-card::before { content: "RECOMMENDED"; position: absolute; top: -10px; right: 10px; background: var(--accent); color: #000; font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 20px; }
+        .best-card { border: 2px solid var(--accent) !important; position: relative; }
+        .best-card::before { content: "RECOMMENDED"; position: absolute; top: -10px; right: 10px; background: var(--accent); color: #000; font-size: 8px; font-weight: 800; padding: 2px 8px; border-radius: 20px; }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased min-h-screen pb-10">
 
 <div class="max-w-4xl mx-auto px-4 py-8">
     <header class="flex justify-between items-center mb-12">
         <div class="flex items-center gap-2">
-            <div class="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center shadow-lg shadow-sky-500/20 text-2xl">🌙</div>
+            <div class="w-10 h-10 bg-sky-500 rounded-xl flex items-center justify-center text-2xl shadow-lg shadow-sky-500/20">🌙</div>
             <h1 class="text-2xl font-extrabold tracking-tight">DeepSleep<span class="text-sky-400">Pro</span></h1>
         </div>
-        <button onclick="openModal()" class="bg-sky-500 hover:bg-sky-400 text-slate-900 px-6 py-2.5 rounded-full font-bold transition-all transform active:scale-95 shadow-lg shadow-sky-500/20">Login / Signup</button>
+        <button onclick="alert('Login system coming soon!')" class="bg-sky-500 hover:bg-sky-400 text-slate-900 px-6 py-2.5 rounded-full font-bold transition-all shadow-lg shadow-sky-500/20">Login</button>
     </header>
 
-    <div class="glass rounded-[2rem] p-6 md:p-10 shadow-2xl mb-12">
+    <div class="glass rounded-[2.5rem] p-6 md:p-10 shadow-2xl mb-12">
         <div class="flex gap-4 mb-8 bg-slate-800/50 p-1.5 rounded-2xl w-fit">
             <button onclick="switchTab('sleep')" id="tab-sleep" class="px-6 py-3 rounded-xl font-bold transition-all bg-sky-500 text-slate-900">Sleep Planner</button>
             <button onclick="switchTab('nap')" id="tab-nap" class="px-6 py-3 rounded-xl font-bold transition-all text-slate-400 hover:text-white">Nap Timer</button>
         </div>
 
-        <div id="sleep-ui" class="space-y-6">
-            <div class="grid md:grid-cols-2 gap-6">
+        <div id="sleep-ui" class="space-y-8">
+            <div class="grid md:grid-cols-2 gap-8">
                 <div>
-                    <label class="block text-slate-400 text-sm font-semibold mb-2">Target Wake-up Time</label>
-                    <input type="time" id="wakeTime" value="07:00" class="w-full bg-slate-900 border border-slate-700 rounded-2xl p-4 text-2xl font-bold focus:border-sky-500 outline-none transition-all">
+                    <label class="block text-sky-400 text-xs font-black uppercase tracking-widest mb-3">Target Wake-up Time</label>
+                    <input type="time" id="wakeTime" value="07:00" class="w-full bg-slate-900 border border-slate-700 rounded-2xl p-5 text-3xl font-bold focus:border-sky-500 outline-none transition-all text-white">
                 </div>
                 <div>
-                    <label class="block text-slate-400 text-sm font-semibold mb-2">Caffeine Consumption</label>
-                    <select id="caffeine" class="w-full bg-slate-900 border border-slate-700 rounded-2xl p-4 h-[66px] focus:border-sky-500 outline-none">
-                        <option value="0">No Caffeine (Optimal)</option>
-                        <option value="1">1 Cup Coffee/Tea (Moderate)</option>
-                        <option value="2">Energy Drink / Multiple Cups (High)</option>
+                    <label class="block text-sky-400 text-xs font-black uppercase tracking-widest mb-3">Caffeine Consumption</label>
+                    <select id="caffeine" class="w-full bg-slate-900 border border-slate-700 rounded-2xl p-5 h-[76px] font-bold focus:border-sky-500 outline-none text-white">
+                        <option value="0">Clean State (No Caffeine)</option>
+                        <option value="1">1 Cup Coffee/Tea</option>
+                        <option value="2">Energy Drinks / 2+ Cups</option>
                     </select>
                 </div>
             </div>
-            <button onclick="calculate()" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white py-5 rounded-2xl font-extrabold text-xl shadow-xl shadow-blue-500/20 transition-all active:scale-[0.98]">Analyze Sleep Cycles</button>
+            <button onclick="calculate()" class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white py-6 rounded-2xl font-black text-xl shadow-xl shadow-blue-500/30 transition-all active:scale-95 uppercase tracking-widest">Analyze Sleep Cycles</button>
         </div>
 
         <div id="nap-ui" class="hidden grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button onclick="runNap(20)" class="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl hover:bg-emerald-500/20 transition-all text-left group">
-                <span class="block text-emerald-400 font-bold mb-1">Power Nap</span>
-                <span class="text-2xl font-extrabold">20 Mins</span>
-                <p class="text-xs text-emerald-400/60 mt-2 italic">Best for alertness without grogginess.</p>
+            <button onclick="runNap(20)" class="p-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl hover:bg-emerald-500/20 transition-all text-left">
+                <span class="block text-emerald-400 font-black text-xs uppercase mb-1">Power Nap</span>
+                <span class="text-3xl font-black">20 Mins</span>
+                <p class="text-[10px] text-emerald-400/60 mt-2 uppercase font-bold">Boost Alertness</p>
             </button>
             <button onclick="runNap(45)" class="p-6 bg-amber-500/10 border border-amber-500/30 rounded-2xl hover:bg-amber-500/20 transition-all text-left">
-                <span class="block text-amber-400 font-bold mb-1">NASA Nap</span>
-                <span class="text-2xl font-extrabold">45 Mins</span>
-                <p class="text-xs text-amber-400/60 mt-2 italic">Improves cognitive performance by 34%.</p>
+                <span class="block text-amber-400 font-black text-xs uppercase mb-1">NASA Nap</span>
+                <span class="text-3xl font-black">45 Mins</span>
+                <p class="text-[10px] text-amber-400/60 mt-2 uppercase font-bold">Cognitive Boost</p>
             </button>
             <button onclick="runNap(90)" class="p-6 bg-sky-500/10 border border-sky-500/30 rounded-2xl hover:bg-sky-500/20 transition-all text-left">
-                <span class="block text-sky-400 font-bold mb-1">Full Cycle</span>
-                <span class="text-2xl font-extrabold">90 Mins</span>
-                <p class="text-xs text-sky-400/60 mt-2 italic">Complete REM cycle for deep recovery.</p>
+                <span class="block text-sky-400 font-black text-xs uppercase mb-1">Full Cycle</span>
+                <span class="text-3xl font-black">90 Mins</span>
+                <p class="text-[10px] text-sky-400/60 mt-2 uppercase font-bold">REM Recovery</p>
             </button>
         </div>
 
-        <div id="results" class="mt-10 hidden space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-700 pb-4">
-                <h3 class="text-xl font-bold">Suggested Bedtimes</h3>
-                <span id="caf-indicator" class="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400">Clean State</span>
+        <div id="results" class="mt-12 hidden space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-700/50 pb-5">
+                <h3 class="text-xl font-black tracking-tight uppercase">Suggested Bedtimes</h3>
+                <span id="caf-indicator" class="text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-tighter"></span>
             </div>
-            <div id="cycle-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 py-4"></div>
-            <p class="text-center text-slate-500 text-xs">*Calculation includes 14 minutes average sleep latency (time taken to fall asleep).</p>
+            <div id="cycle-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+            <p id="caffeine-msg" class="text-center text-slate-500 text-[11px] font-bold uppercase tracking-widest mt-6"></p>
         </div>
     </div>
 
-    <section class="space-y-16 mt-20">
+    <section class="mt-20 space-y-20">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-3xl font-extrabold mb-6 leading-tight">The Science of <span class="text-sky-400">Circadian Rhythms</span></h2>
-                <p class="text-slate-400 mb-4 text-lg">Waking up in the middle of a deep sleep stage often results in "Sleep Inertia"—that heavy, groggy feeling that ruins your morning. DeepSleep Pro uses the <strong>90-minute rule</strong> to ensure you wake up at the end of a light sleep stage.</p>
-                <ul class="space-y-3 text-slate-300">
-                    <li class="flex items-center gap-2">✅ <span class="font-semibold text-white">Non-REM 1-3:</span> Light to Deepest Sleep.</li>
-                    <li class="flex items-center gap-2">✅ <span class="font-semibold text-white">REM Sleep:</span> Essential for Memory and Creativity.</li>
-                </ul>
+                <h2 class="text-4xl font-black mb-6 leading-none uppercase tracking-tighter">Master Your <span class="text-sky-400">Circadian Rhythm</span></h2>
+                <p class="text-slate-400 text-lg mb-6 leading-relaxed">DeepSleep Pro uses the 90-minute sleep cycle rule to help you avoid <strong>Sleep Inertia</strong>. By waking up at the end of a light sleep stage, you ensure peak mental performance.</p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 text-sky-400">✔</div>
+                        <p class="text-slate-300 font-medium"><span class="text-white font-bold">90-Minute Cycles:</span> The standard duration for a human sleep cycle.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="mt-1 text-sky-400">✔</div>
+                        <p class="text-slate-300 font-medium"><span class="text-white font-bold">REM Optimization:</span> Essential for memory, learning, and mood regulation.</p>
+                    </div>
+                </div>
             </div>
-            <div class="bg-slate-800/30 p-8 rounded-[2rem] border border-slate-700">
-                <h3 class="text-xl font-bold mb-4 text-sky-400 italic">"Why 5 or 6 Cycles?"</h3>
-                <p class="text-sm text-slate-400 leading-relaxed italic">Scientific studies show that for 95% of healthy adults, 7.5 hours (5 cycles) or 9 hours (6 cycles) is the optimum duration for cognitive restoration and metabolic health. Going beyond 9 cycles (Over-sleeping) is often linked to increased risk of chronic fatigue.</p>
+            <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-[2rem]">
+                <h3 class="text-sky-400 font-black mb-4 uppercase tracking-widest text-sm italic">The Science of Nap</h3>
+                <p class="text-slate-400 italic text-sm leading-relaxed">"A 20-minute power nap provides significant alertness boost without entering deep sleep, preventing the grogginess associated with longer, incomplete naps." — Sleep Research Society.</p>
             </div>
         </div>
 
-        <div class="space-y-6">
-            <h2 class="text-3xl font-extrabold text-center mb-10">Frequently Asked Questions</h2>
+        <div class="space-y-8">
+            <h2 class="text-3xl font-black text-center uppercase tracking-tighter mb-10">Frequently Asked Questions</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-slate-800/50 p-6 rounded-2xl">
-                    <h4 class="font-bold text-sky-400 mb-2">Can I survive on 4 cycles?</h4>
-                    <p class="text-sm text-slate-400">While 6 hours (4 cycles) can be done occasionally, long-term sleep debt leads to decreased immunity and high cortisol levels.</p>
+                <div class="bg-slate-800/30 p-8 rounded-3xl border border-slate-800">
+                    <h4 class="font-black text-sky-400 mb-3 uppercase text-sm tracking-widest">Why 9 Sleep Cycles?</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Most people need 5-6 cycles. However, some athletes and high-performance individuals require up to 9 cycles for physical recovery. Over-sleeping beyond this can cause fatigue.</p>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-2xl">
-                    <h4 class="font-bold text-sky-400 mb-2">How does caffeine affect this calculator?</h4>
-                    <p class="text-sm text-slate-400">Caffeine blocks Adenosine receptors. Even if you sleep, your brain may skip deep REM stages. Our tool adjusts the recommendation label based on your intake.</p>
+                <div class="bg-slate-800/30 p-8 rounded-3xl border border-slate-800">
+                    <h4 class="font-black text-sky-400 mb-3 uppercase text-sm tracking-widest">Is Caffeine that bad?</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Caffeine blocks Adenosine, the chemical that makes you feel sleepy. It can reduce the quality of Deep REM sleep, even if you manage to fall asleep easily.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="mt-24 border-t border-slate-800 pt-12 text-center">
-        <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-500 mb-8">
-            <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="terms.html" class="hover:text-white transition-colors">Terms of Service</a>
-            <a href="contact.html" class="hover:text-white transition-colors">Contact Support</a>
-            <a href="#" class="hover:text-white transition-colors">Sitemap</a>
+        <div class="flex flex-wrap justify-center gap-6 text-[10px] font-black uppercase tracking-widest text-slate-500 mb-8">
+            <a href="privacy.html" class="hover:text-sky-400 transition-colors">Privacy Policy</a>
+            <a href="terms.html" class="hover:text-sky-400 transition-colors">Terms of Service</a>
+            <a href="contact.html" class="hover:text-sky-400 transition-colors">Contact Support</a>
         </div>
-        <p class="text-slate-600 text-xs italic">&copy; 2026 DeepSleep Pro Global - Scientific Sleep Optimization Portal. All rights reserved.</p>
+        <p class="text-slate-600 text-[10px] font-bold uppercase tracking-[0.2em]">&copy; 2026 DEEPSLEEP PRO GLOBAL - SCIENTIFIC OPTIMIZATION</p>
     </footer>
 </div>
 
-<div id="authModal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-    <div class="glass w-full max-w-md p-8 rounded-[2.5rem] relative">
-        <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white text-2xl">&times;</button>
-        <h3 class="text-2xl font-extrabold mb-2">Welcome Back</h3>
-        <p class="text-slate-400 mb-8 text-sm">Sign in to save your sleep history and analytics.</p>
-        <div class="space-y-4">
-            <input type="email" placeholder="Email Address" class="w-full bg-slate-900 border border-slate-700 p-4 rounded-xl outline-none focus:border-sky-500">
-            <input type="password" placeholder="Password" class="w-full bg-slate-900 border border-slate-700 p-4 rounded-xl outline-none focus:border-sky-500">
-            <button onclick="alert('Demo Mode: Backend integration needed!')" class="w-full bg-sky-500 text-slate-900 py-4 rounded-xl font-bold text-lg hover:bg-sky-400 transition-all">Continue</button>
-            <p class="text-center text-sm text-slate-500">Don't have an account? <a href="#" class="text-sky-400 font-bold">Sign Up</a></p>
-        </div>
-    </div>
-</div>
-
 <script>
-    function openModal() { document.getElementById('authModal').classList.remove('hidden'); }
-    function closeModal() { document.getElementById('authModal').classList.add('hidden'); }
-
     function switchTab(tab) {
         document.getElementById('sleep-ui').classList.toggle('hidden', tab === 'nap');
         document.getElementById('nap-ui').classList.toggle('hidden', tab === 'sleep');
@@ -150,122 +138,82 @@
         const timeInput = document.getElementById('wakeTime').value;
         const caffeine = document.getElementById('caffeine').value;
         const grid = document.getElementById('cycle-grid');
+        const indicator = document.getElementById('caf-indicator');
+        const msg = document.getElementById('caffeine-msg');
+        
+        if(!timeInput) return alert('Please select your wake-up time!');
+        
         grid.innerHTML = '';
-
         const [h, m] = timeInput.split(':');
-        const d = new Date(); d.setHours(h, m, 0);
+        const d = new Date(); d.setHours(parseInt(h), parseInt(m), 0);
 
+        // Calculating 9 Cycles
         for (let i = 9; i >= 1; i--) {
             const bt = new Date(d.getTime() - (i * 90 * 60000) - (14 * 60000));
-            const ts = bt.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+            const ts = bt.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12: false});
             
             let status = "Average";
-            let color = "border-slate-700 text-slate-300 bg-slate-800/20";
+            let color = "border-slate-800 text-slate-400 bg-slate-900/40";
             
-            if (i === 5 || i === 6) { status = "PERFECT ✅"; color = "best-card text-emerald-400 bg-emerald-500/5"; }
-            else if (i <= 3) { status = "TOO SHORT ⚠️"; color = "border-rose-500/30 text-rose-400 bg-rose-500/5"; }
-            else if (i >= 8) { status = "OVER-SLEEPING 😴"; color = "border-indigo-500/30 text-indigo-400 bg-indigo-500/5"; }
+            if (i === 5 || i === 6) { 
+                status = "PERFECT ✅"; 
+                color = "best-card text-emerald-400 bg-emerald-500/5 border-emerald-500/30"; 
+            } else if (i <= 3) { 
+                status = "TOO SHORT ⚠️"; 
+                color = "border-rose-500/20 text-rose-400 bg-rose-500/5"; 
+            } else if (i >= 8) { 
+                status = "OVER-SLEEPING 😴"; 
+                color = "border-indigo-500/20 text-indigo-400 bg-indigo-500/5"; 
+            }
 
             grid.innerHTML += `
-                <div class="p-5 rounded-2xl border text-center transition-all hover:scale-[1.03] ${color}">
-                    <div class="text-2xl font-black mb-1">${ts}</div>
-                    <div class="text-[9px] font-extrabold uppercase tracking-widest opacity-80">${status}</div>
-                    <div class="text-[10px] opacity-60 mt-1">${i} Cycles (${i*1.5}h)</div>
-                </div>
-            `;
+                <div class="p-6 rounded-3xl border text-center transition-all hover:scale-[1.03] ${color}">
+                    <div class="text-3xl font-black mb-1">${ts}</div>
+                    <div class="text-[9px] font-black uppercase tracking-widest opacity-80">${status}</div>
+                    <div class="text-[10px] font-bold opacity-40 mt-1">${i} Cycles (${i*1.5}h)</div>
+                </div>`;
         }
 
-        const ind = document.getElementById('caf-indicator');
-        if (caffeine == "0") { ind.innerText = "Clean State"; ind.className = "text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400"; }
-        else { ind.innerText = "Caffeine Detected ⚠️"; ind.className = "text-xs px-3 py-1 rounded-full bg-amber-500/20 text-amber-400"; }
+        // Logic for Caffeine Feature
+        if (caffeine === "0") {
+            indicator.innerText = "Clean State ✅";
+            indicator.className = "text-[10px] font-black px-4 py-1.5 rounded-full uppercase bg-emerald-500/20 text-emerald-400";
+            msg.innerText = "*Calculation includes 14-min sleep latency.";
+            msg.className = "text-center text-slate-500 text-[11px] font-bold uppercase tracking-widest mt-6";
+        } else {
+            indicator.innerText = "Caffeine Detected ⚠️";
+            indicator.className = "text-[10px] font-black px-4 py-1.5 rounded-full uppercase bg-amber-500/20 text-amber-400";
+            msg.innerText = "Warning: Caffeine blocks Adenosine. Sleep 30-min earlier to compensate REM loss.";
+            msg.className = "text-center text-amber-500 text-[11px] font-bold uppercase tracking-widest mt-6";
+        }
 
         document.getElementById('results').classList.remove('hidden');
+        document.getElementById('results').scrollIntoView({behavior:'smooth'});
     }
 
     function runNap(mins) {
         const grid = document.getElementById('cycle-grid');
-        grid.innerHTML = '';
-        const wake = new Date(new Date().getTime() + (mins * 60000));
-        grid.innerHTML = `
-            <div class="col-span-full bg-emerald-500/10 p-8 rounded-3xl border border-emerald-500/20 text-center animate-pulse">
-                <div class="text-slate-400 text-sm font-bold mb-2">SET ALARM FOR:</div>
-                <div class="text-5xl font-black text-emerald-400">${wake.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</div>
-            </div>
-        `;
-        document.getElementById('results').classList.remove('hidden');
-    }
-</script>
-</body>
-</html>
-</div>
-
-<script>
-// 1. Tab Switching logic
-function switchTab(tab) {
-    document.getElementById('sleep-section').classList.toggle('hidden', tab !== 'sleep');
-    document.getElementById('nap-section').classList.toggle('hidden', tab !== 'nap');
-    document.getElementById('btn-sleep').classList.toggle('active', tab === 'sleep');
-    document.getElementById('btn-nap').classList.toggle('active', tab === 'nap');
-    document.getElementById('results').classList.add('hidden');
-}
-
-// 2. Main Calculator (Wahi design jo screenshot 1000149634 mein hai)
-function calculateSleep() {
-    const timeVal = document.getElementById('sleep-time').value;
-    const caffeine = document.getElementById('caffeine').value;
-    const grid = document.getElementById('plan-list');
-    if (!timeVal) return alert('Please select a time!');
-
-    const [h, m] = timeVal.split(':');
-    const sleepTime = new Date();
-    sleepTime.setHours(h, m, 0);
-    grid.innerHTML = '';
-
-    // Wahi cycles aur colors jo aapko pasand hain
-    for (let i = 9; i >= 1; i--) {
-        const cycleTime = new Date(sleepTime.getTime() + (i * 90 * 60000) + (15 * 60000));
-        const ts = cycleTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+        const indicator = document.getElementById('caf-indicator');
+        const msg = document.getElementById('caffeine-msg');
         
-        let status = "AVERAGE";
-        let color = "border-slate-700 text-slate-400";
-        if (i === 5 || i === 6) { status = "PERFECT ✅"; color = "border-emerald-500/50 text-emerald-400"; }
-        else if (i <= 3) { status = "TOO SHORT ⚠️"; color = "border-rose-500/30 text-rose-400"; }
-        else if (i >= 8) { status = "OVER-SLEEPING 😴"; color = "border-indigo-500/30 text-indigo-400"; }
-
-        grid.innerHTML += `
-            <div class="p-5 rounded-2xl border ${color} text-center transition-all hover:scale-[1.03] bg-slate-800/30">
-                <div class="text-2xl font-black mb-1">${ts}</div>
-                <div class="text-[9px] font-extrabold uppercase tracking-widest opacity-80">${status}</div>
-                <div class="text-[10px] opacity-60 mt-1">${i} Cycles (${i*1.5}h)</div>
+        const now = new Date();
+        const wake = new Date(now.getTime() + (mins * 60000));
+        
+        grid.innerHTML = `
+            <div class="col-span-full bg-sky-500/5 p-12 rounded-[2.5rem] border border-sky-500/20 text-center animate-pulse">
+                <div class="text-sky-400 text-xs font-black mb-3 uppercase tracking-[0.3em]">Set Your Alarm For</div>
+                <div class="text-7xl font-black text-white tracking-tighter">${wake.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12: false})}</div>
+                <p class="text-slate-500 text-sm mt-6 font-bold uppercase italic">Recharging for ${mins} Minutes...</p>
             </div>`;
+        
+        indicator.innerText = "Nap Active 😴";
+        indicator.className = "text-[10px] font-black px-4 py-1.5 rounded-full uppercase bg-sky-500/20 text-sky-400";
+        msg.innerText = "Nap mode is optimized for immediate alertness.";
+        msg.className = "text-center text-sky-500 text-[11px] font-bold uppercase tracking-widest mt-6";
+        
+        document.getElementById('results').classList.remove('hidden');
+        document.getElementById('results').scrollIntoView({behavior:'smooth'});
     }
-
-    // Caffeine Message (Wahi purana feature)
-    const msg = document.getElementById('caffeine-msg');
-    msg.innerText = caffeine !== "0" ? "⚠️ CAUTION: Caffeine may delay Deep REM sleep." : "✅ Clean State: Natural sleep cycle.";
-    msg.style.color = caffeine !== "0" ? "#fbbf24" : "#22c55e";
-    
-    document.getElementById('results').classList.remove('hidden');
-}
-
-// 3. Nap Timer (Ab ye bhi wahi design use karega)
-function runNap(mins) {
-    const grid = document.getElementById('plan-list');
-    const now = new Date();
-    const wake = new Date(now.getTime() + (mins * 60000));
-    const ts = wake.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
-
-    grid.innerHTML = `
-        <div class="col-span-full bg-sky-500/10 p-8 rounded-3xl border border-sky-400/30 text-center animate-pulse">
-            <p class="text-sky-400 text-xs font-bold uppercase mb-2">Wake Up At</p>
-            <div class="text-6xl font-black text-white mb-2">${ts}</div>
-            <p class="text-slate-400 text-sm italic">For a perfect ${mins} min power nap.</p>
-        </div>`;
-    
-    document.getElementById('caffeine-msg').innerText = "Nap mode activated! Set your alarm.";
-    document.getElementById('results').classList.remove('hidden');
-}
 </script>
 </body>
 </html>
-
