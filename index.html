@@ -200,39 +200,72 @@
 </div>
 
 <script>
-    function toggleModal(show) { document.getElementById('loginModal').style.display = show ? 'flex' : 'none'; }
-    function switchTab(tab) {
-        document.getElementById('sleep-section').classList.toggle('hidden', tab !== 'sleep');
-        document.getElementById('nap-section').classList.toggle('hidden', tab !== 'nap');
-        document.getElementById('btn-sleep').classList.toggle('active', tab === 'sleep');
-        document.getElementById('btn-nap').classList.toggle('active', tab === 'nap');
-        document.getElementById('results').style.display = 'none';
+// 1. Tab Switching logic
+function switchTab(tab) {
+    document.getElementById('sleep-section').classList.toggle('hidden', tab !== 'sleep');
+    document.getElementById('nap-section').classList.toggle('hidden', tab !== 'nap');
+    document.getElementById('btn-sleep').classList.toggle('active', tab === 'sleep');
+    document.getElementById('btn-nap').classList.toggle('active', tab === 'nap');
+    document.getElementById('results').classList.add('hidden');
+}
+
+// 2. Main Calculator (Wahi design jo screenshot 1000149634 mein hai)
+function calculateSleep() {
+    const timeVal = document.getElementById('sleep-time').value;
+    const caffeine = document.getElementById('caffeine').value;
+    const grid = document.getElementById('plan-list');
+    if (!timeVal) return alert('Please select a time!');
+
+    const [h, m] = timeVal.split(':');
+    const sleepTime = new Date();
+    sleepTime.setHours(h, m, 0);
+    grid.innerHTML = '';
+
+    // Wahi cycles aur colors jo aapko pasand hain
+    for (let i = 9; i >= 1; i--) {
+        const cycleTime = new Date(sleepTime.getTime() + (i * 90 * 60000) + (15 * 60000));
+        const ts = cycleTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+        
+        let status = "AVERAGE";
+        let color = "border-slate-700 text-slate-400";
+        if (i === 5 || i === 6) { status = "PERFECT ✅"; color = "border-emerald-500/50 text-emerald-400"; }
+        else if (i <= 3) { status = "TOO SHORT ⚠️"; color = "border-rose-500/30 text-rose-400"; }
+        else if (i >= 8) { status = "OVER-SLEEPING 😴"; color = "border-indigo-500/30 text-indigo-400"; }
+
+        grid.innerHTML += `
+            <div class="p-5 rounded-2xl border ${color} text-center transition-all hover:scale-[1.03] bg-slate-800/30">
+                <div class="text-2xl font-black mb-1">${ts}</div>
+                <div class="text-[9px] font-extrabold uppercase tracking-widest opacity-80">${status}</div>
+                <div class="text-[10px] opacity-60 mt-1">${i} Cycles (${i*1.5}h)</div>
+            </div>`;
     }
-    function calculateSleep() {
-        const timeVal = document.getElementById('wakeTime').value;
-        const caffeine = document.getElementById('caffeine').value;
-        const list = document.getElementById('plan-list');
-        const msg = document.getElementById('caffeine-msg');
-        list.innerHTML = '';
-        const [h, m] = timeVal.split(':');
-        let d = new Date(); d.setHours(h, m, 0);
-        [6, 5, 4].forEach(c => {
-            let bt = new Date(d.getTime() - (c * 90 * 60000) - (14 * 60000));
-            list.innerHTML += `<div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #334155;"><span>${c} Cycles</span><strong style="color:var(--primary);">${bt.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</strong></div>`;
-        });
-        msg.innerText = caffeine != "0" ? "⚠️ CAUTION: Caffeine may delay Deep REM sleep." : "✅ SYSTEM OPTIMIZED.";
-        msg.style.color = caffeine != "0" ? "#fbbf24" : "#22c55e";
-        document.getElementById('results').style.display = 'block';
-    }
-    function calculateNap(mins) {
-        const list = document.getElementById('plan-list');
-        list.innerHTML = '';
-        let now = new Date();
-        let wake = new Date(now.getTime() + (mins * 60000));
-        list.innerHTML = `<div style="text-align:center;"><div style="font-size:32px; font-weight:bold; color:var(--accent);">${wake.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})}</div></div>`;
-        document.getElementById('results').style.display = 'block';
-    }
+
+    // Caffeine Message (Wahi purana feature)
+    const msg = document.getElementById('caffeine-msg');
+    msg.innerText = caffeine !== "0" ? "⚠️ CAUTION: Caffeine may delay Deep REM sleep." : "✅ Clean State: Natural sleep cycle.";
+    msg.style.color = caffeine !== "0" ? "#fbbf24" : "#22c55e";
+    
+    document.getElementById('results').classList.remove('hidden');
+}
+
+// 3. Nap Timer (Ab ye bhi wahi design use karega)
+function runNap(mins) {
+    const grid = document.getElementById('plan-list');
+    const now = new Date();
+    const wake = new Date(now.getTime() + (mins * 60000));
+    const ts = wake.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+
+    grid.innerHTML = `
+        <div class="col-span-full bg-sky-500/10 p-8 rounded-3xl border border-sky-400/30 text-center animate-pulse">
+            <p class="text-sky-400 text-xs font-bold uppercase mb-2">Wake Up At</p>
+            <div class="text-6xl font-black text-white mb-2">${ts}</div>
+            <p class="text-slate-400 text-sm italic">For a perfect ${mins} min power nap.</p>
+        </div>`;
+    
+    document.getElementById('caffeine-msg').innerText = "Nap mode activated! Set your alarm.";
+    document.getElementById('results').classList.remove('hidden');
+}
 </script>
 </body>
-  </html>
+</html>
 
