@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lionsbhopalwala-debug.github.io/deepsleeppro/sitemap.xml
