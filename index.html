@@ -127,54 +127,97 @@
     </footer>
 
     <script>
-        function st(id) {
-            ['sleep','nap','labs'].forEach(t => {
-                document.getElementById('v-'+t).classList.add('hidden');
-                document.getElementById('t-'+t).classList.remove('active-tab');
-                document.getElementById('t-'+t).classList.add('text-slate-400');
-            });
-            document.getElementById('v-'+id).classList.remove('hidden');
-            document.getElementById('t-'+id).classList.add('active-tab');
-            document.getElementById('res').classList.add('hidden');
-            if(id==='labs') updC();
+    function st(id) {
+        ['sleep','nap','labs'].forEach(t => {
+            document.getElementById('v-'+t).classList.add('hidden');
+            document.getElementById('t-'+t).classList.remove('active-tab');
+            document.getElementById('t-'+t).classList.add('text-slate-400');
+        });
+        document.getElementById('v-'+id).classList.remove('hidden');
+        document.getElementById('t-'+id).classList.add('active-tab');
+        document.getElementById('res').classList.add('hidden');
+        if(id==='labs') updC(); // Lab open karte hi calculate karega
+    }
+
+    function updC() {
+        const v = parseInt(document.getElementById('ci').value);
+        const names = ["None", "Light", "Moderate", "High"];
+        const descs = ["No delay. Latency: 14m", "Minor delay. Latency: 25m", "Significant delay. Latency: 40m", "Extreme. Latency: 60m"];
+        
+        document.getElementById('cl').innerText = names[v];
+        document.getElementById('c-desc').innerText = descs[v];
+
+        // Caffeine Cut-off Logic (Fix)
+        const wakeTime = document.getElementById('wk').value;
+        if(wakeTime) {
+            let [h, m] = wakeTime.split(':');
+            let d = new Date();
+            d.setHours(h, m);
+            
+            // Logic: Caffeine should be stopped 10-14 hours before waking up
+            // Standard recommendation is 10 hours + caffeine intensity
+            let hoursToSubtract = 10 + v; 
+            let cutOffDate = new Date(d.getTime() - (hoursToSubtract * 60 * 60 * 1000));
+            
+            document.getElementById('cc').innerText = cutOffDate.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12:false});
         }
-        function updC() {
-            const v = document.getElementById('ci').value;
-            const names = ["None", "Light", "Moderate", "High"];
-            const descs = ["No delay. Latency: 14m", "Minor delay. Latency: 25m", "Significant delay. Latency: 40m", "Extreme. Latency: 60m"];
-            document.getElementById('cl').innerText = names[v];
-            document.getElementById('c-desc').innerText = descs[v];
-            const w = document.getElementById('wk').value;
-            if(w) {
-                let [h, m] = w.split(':');
-                let d = new Date(); d.setHours(h - (10 + parseInt(v)), m);
-                document.getElementById('cc').innerText = d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12:false});
-            }
+    }
+
+    function calS() {
+        const w = document.getElementById('wk').value;
+        const g = document.getElementById('rg');
+        if(!w) return; 
+        g.innerHTML = '';
+        
+        let latency = 14 + (document.getElementById('ci').value * 15);
+        
+        for(let i=1; i<=8; i++) {
+            let d = new Date(); 
+            let [h,m] = w.split(':'); 
+            d.setHours(h, m);
+            let bd = new Date(d.getTime() - ((i * 90) + latency) * 60000);
+            let ts = bd.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12:false});
+            
+            let clr = i >= 5 && i <= 6 ? "border-sky-500 bg-sky-500/10 scale-105 shadow-2xl" : "border-slate-800 opacity-60";
+            
+            g.innerHTML += `<div class="p-8 rounded-[2.5rem] border ${clr} text-center reveal">
+                <div class="text-[8px] font-black text-sky-400 mb-2">${i} CYCLES</div>
+                <div class="text-3xl font-black">${ts}</div>
+                <div class="text-[8px] font-bold text-slate-500 mt-3 uppercase">${i>=5?'Perfect':'Short'}</div>
+            </div>`;
         }
-        function calS() {
-            const w = document.getElementById('wk').value;
-            const g = document.getElementById('rg');
-            if(!w) return; g.innerHTML = '';
-            let latency = 14 + (document.getElementById('ci').value * 15);
-            for(let i=1; i<=8; i++) {
-                let d = new Date(); let [h,m] = w.split(':'); d.setHours(h, m);
-                let bd = new Date(d.getTime() - ((i * 90) + latency) * 60000);
-                let ts = bd.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12:false});
-                let clr = i >= 5 && i <= 6 ? "border-sky-500 bg-sky-500/10 scale-105 shadow-2xl" : "border-slate-800 opacity-60";
-                g.innerHTML += `<div class="p-8 rounded-[2.5rem] border ${clr} text-center reveal"><div class="text-[8px] font-black text-sky-400 mb-2">${i} CYCLES</div><div class="text-3xl font-black">${ts}</div><div class="text-[8px] font-bold text-slate-500 mt-3 uppercase">${i>=5?'Perfect':'Short'}</div></div>`;
-            }
-            document.getElementById('res').classList.remove('hidden');
-            window.scrollTo({top: document.getElementById('res').offsetTop - 50, behavior: 'smooth'});
-        }
-        function calN(mins, type) {
-            const g = document.getElementById('rg');
-            let now = new Date(); let wake = new Date(now.getTime() + (mins + 14) * 60000);
-            g.innerHTML = `<div class="col-span-full p-16 glass rounded-[3rem] border-sky-500/50 text-center reveal"><div class="text-sky-400 font-black text-[10px] mb-6 uppercase tracking-widest">Alarm Window</div><div class="text-8xl font-black mb-6 italic">${wake.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12:false})}</div><div class="text-[10px] font-bold text-slate-500 uppercase">${type} Mode Engaged</div></div>`;
-            document.getElementById('res').classList.remove('hidden');
-        }
-        function emergencyReset() { document.getElementById('wk').value = "07:00"; document.getElementById('ci').value = 0; updC(); st('sleep'); }
-        function shareResults() { if (navigator.share) { navigator.share({ title: 'DeepSleep Pro', url: window.location.href }); } else { alert("Link Copied!"); } }
-    </script>
+        document.getElementById('res').classList.remove('hidden');
+        window.scrollTo({top: document.getElementById('res').offsetTop - 50, behavior: 'smooth'});
+        updC(); // Background mein caffeine update kar dega
+    }
+
+    function calN(mins, type) {
+        const g = document.getElementById('rg');
+        let now = new Date(); 
+        let wake = new Date(now.getTime() + (mins + 14) * 60000);
+        g.innerHTML = `<div class="col-span-full p-16 glass rounded-[3rem] border-sky-500/50 text-center reveal">
+            <div class="text-sky-400 font-black text-[10px] mb-6 uppercase tracking-widest">Alarm Window</div>
+            <div class="text-8xl font-black mb-6 italic">${wake.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', hour12:false})}</div>
+            <div class="text-[10px] font-bold text-slate-500 uppercase">${type} Mode Engaged</div>
+        </div>`;
+        document.getElementById('res').classList.remove('hidden');
+    }
+
+    function emergencyReset() { 
+        document.getElementById('wk').value = "07:00"; 
+        document.getElementById('ci').value = 0; 
+        updC(); 
+        st('sleep'); 
+    }
+
+    function shareResults() { 
+        if (navigator.share) { 
+            navigator.share({ title: 'DeepSleep Pro', url: window.location.href }); 
+        } else { 
+            alert("Link Copied!"); 
+        } 
+    }
+</script>
 </body>
     </html>
     
