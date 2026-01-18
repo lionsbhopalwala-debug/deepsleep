@@ -3,111 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The 90-Minute Sleep Rule: How to Wake Up Without Brain Fog</title>
-    <meta name="description" content="Learn how to master your sleep cycles using the 90-minute rule. Eliminate sleep inertia and optimize REM architecture for peak cognitive performance.">
+    <title>The 90-Minute Sleep Rule: Scientific Guide to REM Cycles & Sleep Architecture</title>
+    <meta name="description" content="Master the 90-minute sleep rule to eliminate sleep inertia. Learn how REM cycles, adenosine levels, and circadian rhythms affect your cognitive performance and morning energy.">
+    <meta name="keywords" content="90 minute sleep rule, sleep cycles, REM architecture, sleep inertia, circadian rhythm, adenosine sleep pressure, biohacking sleep">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #030712; color: #fff; scroll-behavior: smooth; }
         .glass { background: rgba(15,23,42,0.7); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.08); }
-        .highlight { color: #0ea5e9; font-weight: 800; }
+        .text-gradient { background: linear-gradient(to right, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { margin-bottom: 1.5rem; color: #94a3b8; line-height: 1.8; }
+        strong { color: #fff; font-weight: 700; }
     </style>
 </head>
-<body class="py-12 px-6 lg:py-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-slate-900 via-gray-950 to-black">
+<body class="py-12 px-6 lg:py-24 bg-[#020617]">
     <div class="max-w-3xl mx-auto">
         
-        <nav class="mb-12">
-            <a href="index.html" class="text-sky-400 font-bold text-xs uppercase tracking-[0.3em] hover:text-white transition-all flex items-center gap-2">
-                <span>←</span> Neural Lab Home
+        <nav class="mb-16">
+            <a href="index.html" class="group text-sky-400 font-bold text-xs uppercase tracking-[0.3em] flex items-center gap-2">
+                <span class="transition-transform group-hover:-translate-x-2">←</span> Neural Lab Home
             </a>
         </nav>
 
-        <header class="mb-16">
-            <div class="text-sky-500 font-black text-[10px] uppercase tracking-[0.5em] mb-4">Science-Backed Sleep Optimization</div>
-            <h1 class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] mb-8">
-                The 90-Minute <span class="text-sky-500">Sleep Rule</span>
+        <header class="mb-20">
+            <div class="text-sky-500 font-black text-[10px] uppercase tracking-[0.5em] mb-6">Article 01 • Deep Sleep Bio-hacking</div>
+            <h1 class="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-[0.9] mb-10">
+                The 90-Minute <span class="text-gradient">Sleep Rule</span>
             </h1>
-            <p class="text-slate-400 text-xl italic leading-relaxed">Stop fighting your biology. Learn to align your wake-up time with your brain's natural REM architecture.</p>
+            <p class="text-xl text-slate-300 italic font-medium leading-relaxed">
+                Why waking up at the end of a neural cycle is the ultimate high-performance hack.
+            </p>
         </header>
 
-        <div class="space-y-12 text-slate-300 text-lg leading-relaxed">
+        <div class="prose prose-invert max-w-none">
             
-            <section>
-                <h2 class="text-3xl font-black text-white uppercase italic mb-6">What is the 90-Minute Rule?</h2>
-                <p>The <span class="highlight">90-minute sleep rule</span> is a strategy based on the scientific fact that human sleep occurs in cycles. On average, a person goes through five to six cycles per night. If you've ever wondered why you feel "drunk" with exhaustion after 8 hours of sleep but alert after 6, the answer is <span class="highlight">Sleep Inertia</span>.</p>
+            <section id="introduction">
+                <h2 class="text-3xl font-black text-white uppercase italic mb-8 border-l-4 border-sky-500 pl-6">The Science of Sleep Architecture</h2>
+                <p>The <strong>90-minute sleep rule</strong> is not just a productivity trend; it is rooted in <strong>ultradian rhythms</strong>. Every night, your brain moves through a series of waves, transitioning from light sleep to deep, restorative "Slow Wave Sleep" (SWS), and finally to <strong>Rapid Eye Movement (REM)</strong>.</p>
+                <p>On average, one complete neural cycle takes approximately 90 minutes. Interruption during the <strong>Deep Sleep phase</strong> causes a physiological phenomenon known as <strong>Sleep Inertia</strong>—a state where your prefrontal cortex remains "offline," resulting in brain fog that can last up to 4 hours.</p>
             </section>
 
-            
+            <div class="grid md:grid-cols-3 gap-4 my-12">
+                <div class="glass p-6 rounded-2xl text-center">
+                    <div class="text-sky-400 font-black text-2xl">90m</div>
+                    <div class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mt-2">Avg. Cycle</div>
+                </div>
+                <div class="glass p-6 rounded-2xl text-center">
+                    <div class="text-sky-400 font-black text-2xl">14m</div>
+                    <div class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mt-2">Latency Buffer</div>
+                </div>
+                <div class="glass p-6 rounded-2xl text-center">
+                    <div class="text-sky-400 font-black text-2xl">5-6</div>
+                    <div class="text-[10px] uppercase text-slate-500 font-bold tracking-widest mt-2">Daily Cycles</div>
+                </div>
+            </div>
 
-            <section>
-                <h2 class="text-3xl font-black text-white uppercase italic mb-6">The Science of Sleep Architecture</h2>
-                <p>During a single 90-minute window, your brain travels through three critical stages:</p>
-                <div class="grid gap-4 mt-8">
-                    <div class="glass p-6 rounded-2xl border-l-4 border-sky-500">
-                        <h3 class="text-white font-bold uppercase text-sm mb-2">1. NREM Stage (Light Sleep)</h3>
-                        <p class="text-sm">The transition period. Waking up here feels natural and easy.</p>
-                    </div>
-                    <div class="glass p-6 rounded-2xl border-l-4 border-blue-700">
-                        <h3 class="text-white font-bold uppercase text-sm mb-2">2. Deep Sleep (Slow Wave)</h3>
-                        <p class="text-sm">This is when your body repairs tissue and builds bone/muscle. Interrupting this stage causes severe brain fog.</p>
-                    </div>
-                    <div class="glass p-6 rounded-2xl border-l-4 border-purple-500">
-                        <h3 class="text-white font-bold uppercase text-sm mb-2">3. REM (Rapid Eye Movement)</h3>
-                        <p class="text-sm">Crucial for memory consolidation and emotional regulation. Most dreaming occurs here.</p>
-                    </div>
+            <section id="adenosine">
+                <h2 class="text-3xl font-black text-white uppercase italic mb-8">The Role of Adenosine & Sleep Pressure</h2>
+                <p>To master the 90-minute rule, you must understand <strong>Adenosine</strong>. From the moment you wake up, this chemical builds up in your brain, creating "sleep pressure." The more adenosine you have, the faster you drop into <strong>Stage 3 Deep Sleep</strong>.</p>
+                <p>If your adenosine levels are misaligned due to late-night screen use or caffeine, your first 90-minute cycle may be fragmented. This is why our <strong>DeepSleep Pro calculator</strong> is essential—it helps you time your bedtime when sleep pressure is at its physiological peak.</p>
+            </section>
+
+            <section id="consistency" class="my-16">
+                <div class="bg-slate-900/50 border border-slate-800 p-8 rounded-[2rem]">
+                    <h3 class="text-white font-black uppercase italic mb-4">Consistency Trumps Duration</h3>
+                    <p class="text-sm mb-0">Waking up at <strong>7:00 AM</strong> every day (including weekends) is more valuable than sleeping 10 hours on a Sunday. Regularity aligns your <strong>Circadian Rhythm</strong>, allowing your brain to predict when to start the final REM stage. This natural "unwinding" makes waking up feel effortless.</p>
                 </div>
             </section>
 
-            <section class="bg-slate-900/40 p-10 rounded-[3rem] border border-slate-800">
-                <h2 class="text-2xl font-black text-white uppercase italic mb-4">How to Calculate Your Optimal Bedtime</h2>
-                <p class="text-sm mb-6">To wake up at <span class="text-sky-400 font-bold">7:00 AM</span> feeling refreshed, you should aim for either 5 cycles or 6 cycles:</p>
-                <ul class="space-y-2 text-sm italic">
-                    <li>• 11:30 PM (5 Cycles / 7.5 Hours)</li>
-                    <li>• 10:00 PM (6 Cycles / 9.0 Hours)</li>
-                    <li>• 01:00 AM (4 Cycles / 6.0 Hours) - <span class="text-red-400 underline">Better than 7 hours!</span></li>
-                </ul>
+            <section id="light-trigger">
+                <h2 class="text-3xl font-black text-white uppercase italic mb-8">The Light-Triggered Wake-Up Protocol</h2>
+                <p>The best way to finish your final 90-minute cycle is through <strong>lux-exposure</strong>. Sunlight signals the suprachiasmatic nucleus (SCN) to stop producing <strong>Melatonin</strong> and start producing <strong>Cortisol</strong>. Even if you wake up mid-cycle, 10 minutes of direct light can help clear the adenosine fog faster.</p>
             </section>
 
-            <section class="mt-20">
-                <h2 class="text-3xl font-black text-white uppercase italic mb-10 text-center">Frequently Asked Questions</h2>
-                <div class="space-y-6">
-                    <details class="group glass p-6 rounded-2xl border border-slate-800 cursor-pointer">
+            <section class="mt-24 pt-20 border-t border-slate-900">
+                <h2 class="text-4xl font-black text-white uppercase italic mb-12 text-center underline decoration-sky-500 underline-offset-8">Neural FAQ</h2>
+                <div class="space-y-4">
+                    <details class="group glass p-8 rounded-3xl border border-slate-800 cursor-pointer transition-all">
                         <summary class="font-bold text-white uppercase text-sm list-none flex justify-between items-center">
-                            Is 6 hours of sleep enough if it's 4 full cycles?
+                            Is 6 hours (4 cycles) better than 7 hours?
                             <span class="text-sky-500 group-open:rotate-180 transition-transform">↓</span>
                         </summary>
-                        <p class="text-sm text-slate-500 mt-4 leading-relaxed">While 4 cycles (6 hours) is better than interrupting a cycle at 7 hours, most adults still require 5-6 cycles for long-term health and hormonal balance. Use 6 hours only as a short-term productivity hack.</p>
+                        <div class="mt-6 text-sm text-slate-400">
+                            <strong>Yes.</strong> Physiologically, waking up at 6 hours (the end of the 4th cycle) is often superior to waking at 7 hours. At 7 hours, you are likely in the middle of <strong>Deep Sleep</strong>. Waking up then causes intense grogginess, whereas waking at 6 hours hits the "Light Sleep" exit door.
+                        </div>
                     </details>
 
-                    <details class="group glass p-6 rounded-2xl border border-slate-800 cursor-pointer">
+                    <details class="group glass p-8 rounded-3xl border border-slate-800 cursor-pointer transition-all">
                         <summary class="font-bold text-white uppercase text-sm list-none flex justify-between items-center">
-                            How do I stop waking up in the middle of a cycle?
+                            What is "Sleep Latency" and why does it matter?
                             <span class="text-sky-500 group-open:rotate-180 transition-transform">↓</span>
                         </summary>
-                        <p class="text-sm text-slate-500 mt-4 leading-relaxed">Use a sleep calculator that accounts for "sleep latency" (the time it takes to fall asleep). On average, humans take 14 minutes to drift off. Our calculator includes this buffer automatically.</p>
+                        <div class="mt-6 text-sm text-slate-400">
+                            Sleep Latency is the time it takes to go from fully awake to Stage 1 sleep. The global average is <strong>14 minutes</strong>. If you don't account for this in your 90-minute calculations, your alarm will go off 14 minutes too early, interrupting your REM stage.
+                        </div>
                     </details>
 
-                    <details class="group glass p-6 rounded-2xl border border-slate-800 cursor-pointer">
+                    <details class="group glass p-8 rounded-3xl border border-slate-800 cursor-pointer transition-all">
                         <summary class="font-bold text-white uppercase text-sm list-none flex justify-between items-center">
-                            Does blue light affect the 90-minute rule?
+                            How does caffeine affect these cycles?
                             <span class="text-sky-500 group-open:rotate-180 transition-transform">↓</span>
                         </summary>
-                        <p class="text-sm text-slate-500 mt-4 leading-relaxed">Yes. Blue light from screens suppresses melatonin, which can stretch your cycles or make deep sleep harder to reach, throwing off your timing.</p>
+                        <div class="mt-6 text-sm text-slate-400">
+                            Caffeine blocks adenosine receptors. While it helps you stay awake, it prevents you from entering <strong>Deep Sleep</strong> efficiently. This can stretch your 90-minute cycles or make them "shallow," leading to tiredness even after 5 full cycles.
+                        </div>
                     </details>
                 </div>
             </section>
 
-            <div class="mt-24 p-12 bg-white text-black rounded-[3rem] text-center">
-                <p class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-500 mb-6">Pro Bio-Hacking Gear</p>
-                <h3 class="text-3xl font-black italic uppercase mb-6">Deep Sleep Optimization</h3>
-                <p class="text-sm mb-8 max-w-md mx-auto font-medium">To ensure you stay in your REM cycle without being disturbed by light, we recommend using a 100% blackout mask.</p>
-                <a href="#" class="inline-block bg-black text-white px-12 py-5 rounded-2xl font-black uppercase text-xs tracking-[0.2em] hover:bg-sky-600 transition-all">Check Bio-Hacker Gear</a>
+            <div class="mt-24 p-12 bg-white text-black rounded-[3rem] text-center shadow-[0_0_50px_-12px_rgba(14,165,233,0.5)]">
+                <p class="text-[10px] font-black uppercase tracking-[0.5em] text-slate-500 mb-6">Bio-Hacker Recommended</p>
+                <h3 class="text-4xl font-black italic uppercase mb-8">Optimize Your REM Output</h3>
+                <p class="text-sm mb-10 max-w-md mx-auto font-semibold leading-relaxed">
+                    Light is the enemy of REM. Scientific studies show that 100% darkness can extend your Deep Sleep phase by up to 15%.
+                </p>
+                <a href="#" class="inline-block bg-black text-white px-12 py-6 rounded-2xl font-black uppercase text-xs tracking-[0.3em] hover:bg-sky-500 hover:text-black transition-all transform hover:scale-105 active:scale-95">
+                    Upgrade Sleep Quality
+                </a>
             </div>
 
         </div>
 
-        <footer class="mt-32 py-12 border-t border-slate-900 text-center">
-            <p class="text-[9px] font-bold text-slate-600 uppercase tracking-[0.5em]">&copy; 2026 DEEPSLEEP PRO RESEARCH LABS</p>
+        <footer class="mt-32 py-16 border-t border-slate-900 text-center">
+            <p class="text-[10px] font-bold text-slate-700 uppercase tracking-[0.6em]">&copy; 2026 DEEPSLEEP PRO RESEARCH LABS</p>
         </footer>
     </div>
 </body>
