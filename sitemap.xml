@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/</loc>
-      <lastmod>2026-01-18</lastmod>
-      <priority>1.00</priority>
-   </url>
-   <url>
-      <loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/privacy.html</loc>
-      <lastmod>2026-01-18</lastmod>
-      <priority>0.80</priority>
-   </url>
-   <url>
-      <loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/terms.html</loc>
-      <lastmod>2026-01-18</lastmod>
-      <priority>0.80</priority>
-   </url>
-</urlset>
+  <url>
+    <loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/index.html</loc>
+    <priority>1.0</priority>
+  </url>
 
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/caffeine-analysis.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/blue-light-impact.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/90-minute-blueprint.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/melatonin-timing.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/power-nap-protocol.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/polyphasic-sleep-test.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/magnesium-optimization.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/deep-sleep-supplements.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/cortisol-timing.html</loc><priority>0.8</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/circadian-alignment.html</loc><priority>0.8</priority></url>
+</urlset>
