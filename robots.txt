@@ -1,4 +1,14 @@
+# DEEPSLEEP PRO - Neural Research Lab
+# Robots.txt Optimized for SEO 2026
+
 User-agent: *
 Allow: /
+Disallow: /private/
+Disallow: /temp/
 
+# Specific Optimization for Images (Important for your Article Cards)
+User-agent: Googlebot-Image
+Allow: /
+
+# Direct Path to your Neural Sitemap
 Sitemap: https://lionsbhopalwala-debug.github.io/deepsleeppro/sitemap.xml
