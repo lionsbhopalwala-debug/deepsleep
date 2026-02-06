@@ -3,22 +3,24 @@
 
   <url>
     <loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/index.html</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <priority>1.00</priority>
   </url>
 
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/90-minute-rule.html</loc><priority>0.90</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/caffeine-metabolism.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/blue-light-biohacking.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/melatonin-strategy.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/power-nap-protocol.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/polyphasic-sleep-test.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/magnesium-optimization.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/deep-sleep-supplements.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/cortisol-timing.html</loc><priority>0.85</priority></url>
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/circadian-alignment.html</loc><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/90-minute-rule.html</loc><lastmod>2026-02-06</lastmod><priority>0.90</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/caffeine-metabolism.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/blue-light-biohacking.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/melatonin-strategy.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/power-nap-protocol.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/polyphasic-sleep-test.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/magnesium-optimization.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/deep-sleep-supplements.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/cortisol-timing.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/circadian-alignment.html</loc><lastmod>2026-02-06</lastmod><priority>0.85</priority></url>
 
-  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/privacy-policy.html</loc><priority>0.30</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/privacy.html</loc><priority>0.30</priority></url>
   <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/contact.html</loc><priority>0.30</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/terms.html</loc><priority>0.30</priority></url>
+  <url><loc>https://lionsbhopalwala-debug.github.io/deepsleeppro/disclaimer.html</loc><priority>0.30</priority></url>
 
 </urlset>
